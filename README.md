@@ -1,59 +1,148 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Aplikasi Peminjaman Alat
 
-## About Laravel
+Sistem manajemen peminjaman alat berbasis web dibangun menggunakan **Laravel 12**, **Filament v5**, dan **MySQL 8.4.3**.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?style=flat-square&logo=laravel&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.3.30-777BB4?style=flat-square&logo=php&logoColor=white)
+![Filament](https://img.shields.io/badge/Filament-v5-FDAE4B?style=flat-square&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.4.3-4479A1?style=flat-square&logo=mysql&logoColor=white)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+</div>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Tentang Proyek
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Aplikasi ini dibuat untuk memudahkan proses peminjaman alat secara digital, mencakup pengajuan, persetujuan, pemantauan, hingga pengembalian dengan perhitungan denda otomatis. 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+| Info | Detail |
+|------|--------|
+| Konsentrasi Keahlian | Rekayasa Perangkat Lunak |
+| Kode Soal | KM25.4.1.1 |
+| Tahun Pelajaran | 2025/2026 |
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Stack Teknologi
 
-### Premium Partners
+| Komponen | Teknologi |
+|----------|-----------|
+| Framework | Laravel 12 |
+| Runtime | PHP 8.3.30 |
+| Admin Panel | Filament v5 |
+| Database | MySQL 8.4.3 |
+| Auth & Permission | Filament Shield |
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## Akun Untuk Login
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Dibawah ini adalah akun yang sudah saya sediakan didalam server. Jika Anda ingin mengakses melalui laptop pribadi, silahkan silahkan clone project ini lalu ikuti cara dibawah.
 
-## Code of Conduct
+| Role | Email | Password |
+|------|-------|----------|
+| Admin | admin@app.co | 123456 |
+| Petugas | petugas@app.co | 123456 |
+| Peminjam | peminjam@app.co | 123456 |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## Cara Untuk Mengakses Melalui Lokal(Komputer Masing-Masing)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+git clone https://github.com/Perdanatrisna98/ukksmt4_P1Erlangga
+composer install
+php artisan filament:upgrade
+php artisan make:filament-user
+#setelah make:filament-user, ikuti saja petunjuknya
+```
+
+## Fitur
+
+**Semua Role**
+- Login dan Logout
+
+**Admin**
+- CRUD User, Alat, Kategori
+- CRUD Data Peminjaman & Pengembalian
+- Log Aktivitas
+
+**Petugas**
+- Menyetujui Peminjaman
+- Memantau Pengembalian
+- Cetak Laporan
+
+**Peminjam**
+- Melihat Daftar Alat
+- Mengajukan Peminjaman
+- Mengembalikan Alat
+
+---
+
+## Progress Pengerjaan
+
+| Tanggal | Aktivitas |
+|---------|-----------|
+| 14 Apr 2026 | Inisialisasi proyek, konfigurasi environment dan database |
+| 28 Apr 2026 | Membuat Fitur Login, Logout, Manage Users |
+
+
+### Jalankan Server
+
+Jika anda ingin akses web saya silahkan ketik dibrowser pc server atau menggunakan jaringan lab 2 seperti tabel dibawah ini.
+
+| Keterangan | URL |
+|-------|-----|
+| Domain | ukksmt4.p1erlangga.test|
+| IP/Port | 192.168.9.50:2008 |
+
+---
+
+## Update Setelah `git pull`
+
+```bash
+composer install
+npm install && npm run build
+php artisan migrate
+php artisan filament:upgrade
+php artisan config:clear
+php artisan cache:clear
+php artisan view:clear
+php artisan route:clear
+```
+
+---
+
+
+## Evaluasi 
+
+Evaluasi saya dalam setiap push, ketika saya mengerjakan.
+
+**Fitur yang berjalan**
+- Login & Logout
+- Crud Users / Manage Users
+
+**Belum di Buat**
+- login sesuai role
+
+**Rencana pengembangan**
+- login sesuai role
+
+
+---
+
+## Developer
+
+| Nama | Peran | Sekolah |
+|------|-------|---------|
+| Erlangga Trisna Yudha Perdana | Siswa RPL | SMK MVP ARS Internasional |
+
+---
+
+<div align="center">
+Dikembangkan untuk keperluan Uji Kompetensi Keahlian Semester 4 (UKKSMT4) Tahun Pelajaran 2025/2026.  
+</div>
