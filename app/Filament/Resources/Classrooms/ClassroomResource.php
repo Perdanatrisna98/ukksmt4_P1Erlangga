@@ -13,18 +13,24 @@ use App\Models\Classroom;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class ClassroomResource extends Resource
 {
     protected static ?string $model = Classroom::class;
+    protected static ?string $navigationLabel = 'Kelas';
+    protected static ?string $breadcrumb = 'Kelas';
+    protected static ?string $modelLabel = 'Kelas';
 
-    protected static ?string $navigationLabel = "Kelas";
+    protected static ?int $navigationSort = 2;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-building-library';
+    protected static string|BackedEnum|null $activeNavigationIcon = 'heroicon-s-building-library';
 
-    protected static ?string $recordTitleAttribute = 'id';
+    protected static string|UnitEnum|null $navigationGroup = 'Manajemen Siswa';
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

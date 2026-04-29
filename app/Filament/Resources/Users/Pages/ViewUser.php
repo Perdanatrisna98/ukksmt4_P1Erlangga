@@ -10,11 +10,6 @@ class ViewUser extends ViewRecord
 {
     protected static string $resource = UserResource::class;
 
-    public function getTitle(): string
-    {
-        return 'Manage Users';
-    }
-
     protected function getHeaderActions(): array
     {
         return [

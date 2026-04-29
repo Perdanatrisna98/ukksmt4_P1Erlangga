@@ -13,18 +13,24 @@ use App\Models\Major;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class MajorResource extends Resource
 {
     protected static ?string $model = Major::class;
+    protected static ?string $navigationLabel = 'Jurusan';
+    protected static ?string $breadcrumb = 'Jurusan';
+    protected static ?string $modelLabel = 'Jurusan';
 
-    protected static ?string $navigationLabel = "Jurusan";
+    protected static ?int $navigationSort = 3;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-book-open';
+    protected static string|BackedEnum|null $activeNavigationIcon = 'heroicon-s-book-open';
 
-    protected static ?string $recordTitleAttribute = 'id';
+    protected static string|UnitEnum|null $navigationGroup = 'Manajemen Siswa';
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

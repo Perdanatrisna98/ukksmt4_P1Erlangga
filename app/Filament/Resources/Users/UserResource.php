@@ -13,20 +13,27 @@ use App\Models\User;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
+    protected static ?string $navigationLabel = 'Mengelola Pengguna';
+    protected static ?string $breadcrumb = 'Mengelola Pengguna';
+    protected static ?string $modelLabel = 'Mengelola Pengguna';
 
-    protected static ?string $navigationLabel = "Manage Users";
+    protected static ?int $navigationSort = 1;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-users';
+    protected static string|BackedEnum|null $activeNavigationIcon = 'heroicon-s-users';
 
-    protected static ?string $recordTitleAttribute = 'id';
+    protected static string|UnitEnum|null $navigationGroup = 'Manajemen Pengguna';
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
+    
     {
         return UserForm::configure($schema);
     }
