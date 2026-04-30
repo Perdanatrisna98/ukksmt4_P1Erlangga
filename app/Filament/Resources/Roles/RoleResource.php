@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources\Roles;
 
+use BackedEnum;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use App\Filament\Resources\Roles\Pages\CreateRole;
 use App\Filament\Resources\Roles\Pages\EditRole;
@@ -29,6 +30,7 @@ use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Unique;
 use Override;
+use UnitEnum;
 
 class RoleResource extends Resource
 {
@@ -36,10 +38,15 @@ class RoleResource extends Resource
     use Essentials\BelongsToTenant;
     use Essentials\HasGlobalSearch;
     use Essentials\HasLabels;
-    use Essentials\HasNavigation;
+    // use Essentials\HasNavigation;
     use HasShieldFormComponents;
 
     protected static ?string $recordTitleAttribute = 'name';
+    protected static ?int $navigationSort = 2;
+
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-shield-check';
+    protected static string|BackedEnum|null $activeNavigationIcon = 'heroicon-s-shield-check';
+    protected static string|UnitEnum|null $navigationGroup = 'Manajemen Pengguna';
 
     #[Override]
     public static function form(Schema $schema): Schema
