@@ -14,4 +14,9 @@ class Category extends Model
         'image',
         'is_active'
     ];
+
+    public function asset()
+    {
+        return $this->hasMany(Asset::class);
+    }
 }

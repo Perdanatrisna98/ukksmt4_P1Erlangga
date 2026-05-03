@@ -31,7 +31,7 @@ class StudentResource extends Resource
     protected static string|UnitEnum|null $navigationGroup = 'Manajemen Siswa';
     
 
-    protected static ?string $recordTitleAttribute = 'name';
+    protected static ?string $recordTitleAttribute = 'id';
 
     public static function form(Schema $schema): Schema
     {

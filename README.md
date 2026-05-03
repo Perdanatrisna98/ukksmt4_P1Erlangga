@@ -91,6 +91,7 @@ php artisan make:filament-user
 | 28 Apr 2026 | Membuat Fitur Login, Logout, Manage Users |
 | 29 Apr 2026 | Melanjutkan login sesuai role |
 | 30 Apr 2026 | Membuat CRUD Kategori dan mengubah sedikit tampilan |
+| 1 May 2026 | Membuat CRUD Alat |
 
 
 ### Jalankan Server
@@ -128,12 +129,13 @@ Evaluasi saya dalam setiap push, ketika saya mengerjakan.
 - Crud Users / Manage Users
 - Login sesuai role
 - Crud Kategori
+- Crud Alat
 
 **Akan di Buat**
 - tidak ada
 
 **Rencana pengembangan**
-- Crud Alat
+- Peminjaman
 
 
 ---
