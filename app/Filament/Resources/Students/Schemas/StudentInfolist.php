@@ -4,9 +4,9 @@ namespace App\Filament\Resources\Students\Schemas;
 
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 
 class StudentInfolist
 {
@@ -14,41 +14,90 @@ class StudentInfolist
     {
         return $schema
             ->components([
-                Section::make('Profile Picture')
-                    ->schema([
-                        ImageEntry::make('profile_picture')
-                            ->placeholder('-')
-                            ->disk('public')
-                            ->imageHeight(300)
-                            ->hiddenLabel()
-                            ->alignCenter(),
-                    ])->columnSpan(1),
+                Group::make([
+                    Section::make('Foto Profil')
+                        ->icon('heroicon-o-camera')
+                        ->schema([
+                            ImageEntry::make('profile_picture')
+                                ->hiddenLabel()
+                                ->label('')
+                                ->disk('public')
+                                ->imageHeight(220)
+                                ->imageSize(300)
+                                ->alignCenter()
+                                ->placeholder('-'),
+                        ]),
 
-                Section::make('Informasi Peminjam')
+                    Section::make('Status & Waktu')
+                        ->icon('heroicon-o-clock')
+                        ->schema([
+                            TextEntry::make('created_at')
+                                ->label('Terdaftar')
+                                ->dateTime('d M Y, H:i')
+                                ->placeholder('-'),
+
+                            TextEntry::make('updated_at')
+                                ->label('Diperbarui')
+                                ->dateTime('d M Y, H:i')
+                                ->placeholder('-'),
+                        ])
+                        ->columns(1)
+                        ->collapsed(),
+                ])
+                ->columnSpan(1),
+
+                Section::make('Informasi Siswa')
+                    ->icon('heroicon-o-user')
                     ->schema([
                         TextEntry::make('user.name')
-                            ->label('Nama Peminjam')
-                            ->numeric()
-                            ->icon(Heroicon::UserCircle),
+                            ->label('Nama Lengkap')
+                            ->size('lg')
+                            ->weight('medium')
+                            ->icon('heroicon-o-user-circle')
+                            ->columnSpanFull(),
+
                         TextEntry::make('nisn')
                             ->label('NISN')
-                            ->icon(Heroicon::Identification),
+                            ->icon('heroicon-o-identification')
+                            ->copyable()
+                            ->copyMessage('NISN disalin!'),
+
                         TextEntry::make('classroom.name')
-                            ->label('Class')
-                            ->numeric()
-                            ->icon(Heroicon::BuildingOffice2),
+                            ->label('Kelas')
+                            ->icon('heroicon-o-building-office-2')
+                            ->badge()
+                            ->color('info'),
+
                         TextEntry::make('gender')
-                                ->label('Gender')
-                                ->badge(),
+                            ->label('Jenis Kelamin')
+                            ->badge()
+                            ->color(fn ($state) => match ($state) {
+                                'male', 'Laki-laki'   => 'info',
+                                'female', 'Perempuan' => 'pink',
+                                default               => 'gray',
+                            }),
+
                         TextEntry::make('phone_number')
-                            ->label('Phone Number')
-                            ->icon(Heroicon::Phone),
+                            ->label('No. HP')
+                            ->icon('heroicon-o-phone')
+                            ->copyable()
+                            ->copyMessage('Nomor disalin!'),
+
+                        TextEntry::make('user.email')
+                            ->label('Email')
+                            ->icon('heroicon-o-envelope')
+                            ->copyable()
+                            ->copyMessage('Email disalin!'),
+
                         TextEntry::make('address')
-                            ->placeholder('-')
-                            ->columnSpanFull()
-                            ->icon(Heroicon::MapPin),
-                    ])->columnSpan(2)
-                    ->columns(3),
-            ])->columns(3);
+                            ->label('Alamat')
+                            ->icon('heroicon-o-map-pin')
+                            ->placeholder('Belum diisi.')
+                            ->columnSpanFull(),
+                    ])
+                    ->columns(2)
+                    ->columnSpan(2),
+            ])
+            ->columns(3);
     }
 }

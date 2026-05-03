@@ -20,8 +20,8 @@ class Classroom extends Model
         return $this->belongsTo(Major::class);
     }
 
-    public function student () 
+    public function students(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->belongsTo(Student::class);
+        return $this->hasMany(Student::class,'classroom_id','id');
     }
 }

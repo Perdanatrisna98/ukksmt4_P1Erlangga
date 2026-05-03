@@ -20,6 +20,9 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
     protected static ?int $navigationSort = 2;
+    protected static ?string $navigationLabel = 'Kategori';
+    protected static ?string $breadcrumb = 'Kategori';
+    protected static ?string $modelLabel = 'kategori';
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-squares-2x2';
     protected static string|BackedEnum|null $activeNavigationIcon = 'heroicon-s-squares-2x2';

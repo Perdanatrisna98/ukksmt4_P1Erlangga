@@ -92,6 +92,7 @@ php artisan make:filament-user
 | 29 Apr 2026 | Melanjutkan login sesuai role |
 | 30 Apr 2026 | Membuat CRUD Kategori dan mengubah sedikit tampilan |
 | 1 May 2026 | Membuat CRUD Alat |
+| 2 May 2026 | Mengubah Tampilan |
 
 
 ### Jalankan Server

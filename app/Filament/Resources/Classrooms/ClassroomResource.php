@@ -28,7 +28,7 @@ class ClassroomResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-building-library';
     protected static string|BackedEnum|null $activeNavigationIcon = 'heroicon-s-building-library';
 
-    protected static string|UnitEnum|null $navigationGroup = 'Manajemen Siswa';
+    protected static string|UnitEnum|null $navigationGroup = 'Manajemen Peminjam';
 
     protected static ?string $recordTitleAttribute = 'name';
 

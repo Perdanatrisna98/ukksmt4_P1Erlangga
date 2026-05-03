@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Asset;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
@@ -15,8 +16,8 @@ class Category extends Model
         'is_active'
     ];
 
-    public function asset()
-    {
-        return $this->hasMany(Asset::class);
-    }
+    public function assets(): \Illuminate\Database\Eloquent\Relations\HasMany
+{
+    return $this->hasMany(Asset::class);
+}
 }

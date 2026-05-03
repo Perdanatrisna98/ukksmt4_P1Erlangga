@@ -28,7 +28,7 @@ class MajorResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-book-open';
     protected static string|BackedEnum|null $activeNavigationIcon = 'heroicon-s-book-open';
 
-    protected static string|UnitEnum|null $navigationGroup = 'Manajemen Siswa';
+    protected static string|UnitEnum|null $navigationGroup = 'Manajemen Peminjam';
 
     protected static ?string $recordTitleAttribute = 'name';
 
