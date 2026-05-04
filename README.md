@@ -93,6 +93,7 @@ php artisan make:filament-user
 | 30 Apr 2026 | Membuat CRUD Kategori dan mengubah sedikit tampilan |
 | 1 May 2026 | Membuat CRUD Alat |
 | 2 May 2026 | Mengubah Tampilan |
+| 3 May 2026 | Membuat CRUD Peminjaman |
 
 
 ### Jalankan Server
@@ -131,12 +132,13 @@ Evaluasi saya dalam setiap push, ketika saya mengerjakan.
 - Login sesuai role
 - Crud Kategori
 - Crud Alat
+- Crud Peminjaman
 
 **Akan di Buat**
 - tidak ada
 
 **Rencana pengembangan**
-- Peminjaman
+- Pengembalian
 
 
 ---
