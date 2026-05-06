@@ -30,4 +30,9 @@ class Ticket extends Model
     {
         return $this->belongsTo(Asset::class);
     }
+
+    public function AssetReturn () 
+    {
+        return $this->hasMany(AssetReturn::class);
+    }
 }
