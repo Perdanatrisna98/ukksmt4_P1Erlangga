@@ -29,7 +29,7 @@ class AssetInfolist
                                 ->size('lg')
                                 ->weight('medium'),
 
-                            TextEntry::make('category.name')  // Fix: bukan category_id
+                            TextEntry::make('category.name')
                                 ->label('Kategori')
                                 ->badge()
                                 ->color('info'),
@@ -117,7 +117,7 @@ class AssetInfolist
                                 ->placeholder('-'),
                         ])
                         ->columns(2)
-                        ->collapsed(),   // default collapsed karena jarang dilihat
+                        ->collapsed(),
                 ])
                 ->columnSpan(1),
             ])

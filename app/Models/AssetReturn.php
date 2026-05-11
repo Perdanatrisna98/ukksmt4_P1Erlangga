@@ -55,4 +55,14 @@ class AssetReturn extends Model
             }
         });
     }
+
+    public function assetFines ()
+    {
+        return $this->hasMany(AssetFine::class);
+    }
+
+    protected $casts = [
+        'due_at' => 'datetime',
+        'returned_at' => 'datetime',
+    ];
 }

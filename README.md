@@ -95,6 +95,8 @@ php artisan make:filament-user
 | 2 May 2026 | Mengubah Tampilan |
 | 4 May 2026 | Membuat CRUD Peminjaman |
 | 6 May 2026 | Membuat Crud Pengembalian |
+| 8 May 2026 | Membuat Denda & Pelanggaran |
+| 11 May 2026 | Membenarkan Tampilan & Error |
 
 
 ### Jalankan Server
@@ -135,12 +137,19 @@ Evaluasi saya dalam setiap push, ketika saya mengerjakan.
 - Crud Alat
 - Crud Peminjaman
 - Crud Pengembalian
+- Denda & Pelanggaran
 
 **Akan di Buat**
-- tidak ada
+- Riwayat Peminjaman
+- Log Aktivitas
+- Cetak Laporan
 
 **Rencana pengembangan**
-- Pelanggaran & Denda
+- Riwayat Peminjaman
+- Log Aktivitas
+- Cetak Laporan
+- Test All Fitur
+- Membenarkan Error
 
 
 ---

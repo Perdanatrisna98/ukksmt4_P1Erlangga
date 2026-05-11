@@ -17,18 +17,16 @@ class AssetReturnInfolist
                     Section::make('Detail Pengembalian')
                         ->icon('heroicon-o-arrow-down-tray')
                         ->schema([
-                            TextEntry::make('ticket.ticket_number')  // Fix: bukan ticket_id
+                            TextEntry::make('ticket.ticket_number')
                                 ->label('Nomor Tiket')
-                                ->fontFamily('mono')
-                                ->copyable()
-                                ->copyMessage('Nomor tiket disalin!'),
+                                ->fontFamily('mono'),
 
                             TextEntry::make('returned_at')
                                 ->label('Waktu Pengembalian')
                                 ->dateTime('d M Y, H:i')
                                 ->icon('heroicon-o-clock'),
 
-                            TextEntry::make('asset.name')           // Fix: bukan asset_id
+                            TextEntry::make('asset.name')
                                 ->label('Aset')
                                 ->icon('heroicon-o-cube'),
 
@@ -61,7 +59,7 @@ class AssetReturnInfolist
 
                             TextEntry::make('notes')
                                 ->label('Catatan')
-                                ->placeholder('Tidak ada catatan.')
+                                ->placeholder('-')
                                 ->columnSpanFull(),
                         ])
                         ->columns(2),
@@ -72,15 +70,13 @@ class AssetReturnInfolist
                     Section::make('Verifikator')
                         ->icon('heroicon-o-check-badge')
                         ->schema([
-                            TextEntry::make('user.name')             // Fix: bukan user_id
+                            TextEntry::make('user.name')
                                 ->label('Diverifikasi Oleh')
                                 ->icon('heroicon-o-user'),
 
                             TextEntry::make('ticket.asset.code')
                                 ->label('Kode Aset')
-                                ->fontFamily('mono')
-                                ->copyable()
-                                ->copyMessage('Kode disalin!'),
+                                ->fontFamily('mono'),
 
                             TextEntry::make('ticket.status')
                                 ->label('Status Tiket')
@@ -107,12 +103,10 @@ class AssetReturnInfolist
                         ->icon('heroicon-o-clock')
                         ->schema([
                             TextEntry::make('created_at')
-                                ->label('Dibuat')
                                 ->dateTime('d M Y, H:i')
                                 ->placeholder('-'),
 
                             TextEntry::make('updated_at')
-                                ->label('Diperbarui')
                                 ->dateTime('d M Y, H:i')
                                 ->placeholder('-'),
                         ])

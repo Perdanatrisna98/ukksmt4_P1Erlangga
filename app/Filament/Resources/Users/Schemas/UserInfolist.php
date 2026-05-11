@@ -35,8 +35,8 @@ class UserInfolist
                                 ->badge()
                                 ->color(fn ($state) => match ($state) {
                                     'admin', 'super_admin' => 'danger',
-                                    'peminjam'             => 'info',
-                                    default                => 'gray',
+                                    'peminjam' => 'info',
+                                    default => 'gray',
                                 }),
                         ])
                         ->columns(2),

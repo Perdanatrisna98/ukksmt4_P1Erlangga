@@ -18,7 +18,7 @@ class TicketForm
                 Group::make([
                     Section::make('Transaksi Peminjaman')
                         ->icon('heroicon-o-ticket')
-                        ->description('Pilih peminjam, aset, dan tentukan batas waktu pengembalian.')
+                        // ->description('Pilih peminjam, aset, dan tentukan batas waktu pengembalian.')
                         ->schema([
                             Select::make('user_id')
                                 ->label('Peminjam')
@@ -38,16 +38,14 @@ class TicketForm
                                 ->searchable()
                                 ->preload()
                                 ->required()
-                                ->native(false)
-                                ->helperText('Hanya aset dengan stok tersedia yang dapat dipilih.'),
+                                ->native(false),
 
                             DatePicker::make('due_at')
                                 ->label('Batas Kembali')
                                 ->required()
                                 ->native(false)
                                 ->minDate(now()->addDay())
-                                ->displayFormat('d M Y')
-                                ->helperText('Minimal 1 hari dari sekarang.'),
+                                ->displayFormat('d M Y'),
 
                             Textarea::make('note')
                                 ->label('Catatan Tambahan')

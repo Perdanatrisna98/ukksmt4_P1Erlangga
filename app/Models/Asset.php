@@ -19,7 +19,10 @@ class Asset extends Model
         'borrowed_qty',
         'is_available',
         'image',
-        'description'
+        'description',
+        'purchase_price',
+        'procurement_year',
+        'funding_source',
     ];
 
     public function category() 

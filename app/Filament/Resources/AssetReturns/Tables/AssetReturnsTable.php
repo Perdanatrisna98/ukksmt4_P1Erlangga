@@ -3,9 +3,7 @@
 namespace App\Filament\Resources\AssetReturns\Tables;
 
 use Filament\Actions\ActionGroup;
-use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
-use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
@@ -18,20 +16,20 @@ class AssetReturnsTable
     {
         return $table
             ->columns([
-                TextColumn::make('ticket.ticket_number')    // Fix: bukan ticket_id
+                TextColumn::make('ticket.ticket_number')
                     ->label('Nomor Tiket')
                     ->searchable()
                     ->fontFamily('mono')
                     ->copyable()
                     ->copyMessage('Nomor tiket disalin!'),
 
-                TextColumn::make('user.name')               // Fix: bukan user_id
+                TextColumn::make('user.name')
                     ->label('Diverifikasi Oleh')
                     ->searchable()
                     ->sortable()
                     ->icon('heroicon-o-user'),
 
-                TextColumn::make('asset.name')              // Fix: bukan asset_id
+                TextColumn::make('asset.name')
                     ->label('Aset')
                     ->searchable()
                     ->sortable()
@@ -113,11 +111,6 @@ class AssetReturnsTable
                 ])
                 ->tooltip('Aksi')
                 ->icon('heroicon-m-ellipsis-vertical'),
-            ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make()->requiresConfirmation(),
-                ]),
             ]);
     }
 }

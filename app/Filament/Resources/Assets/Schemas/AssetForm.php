@@ -9,7 +9,6 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Schemas\Components\Fieldset;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
@@ -26,7 +25,7 @@ class AssetForm
         $borrowed = (int) $get('borrowed_qty');
         $lost     = (int) $get('lost_qty');
 
-        $set('available_qty', max(0, $good - $borrowed)); // Fix: cegah nilai negatif
+        $set('available_qty', max(0, $good - $borrowed));
         $set('total_qty', $good + $damaged + $borrowed + $lost);
     }
 
@@ -79,6 +78,23 @@ class AssetForm
                                 ->placeholder('MacBook Pro 14-inch')
                                 ->columnSpanFull(),
 
+                            TextInput::make('purchase_price')
+                                ->label('Harga Pembelian')
+                                ->numeric()
+                                ->placeholder('15000000')
+                                ->columnSpanFull(),
+
+                            TextInput::make('procurement_year')
+                                ->label('Tahun Pengadaan')
+                                ->numeric()
+                                ->placeholder('2023')
+                                ->columnSpanFull(),
+
+                            TextInput::make('funding_source')
+                                ->label('Sumber Pendanaan')
+                                ->placeholder('Dana BOS')
+                                ->columnSpanFull(),
+
                             RichEditor::make('description')
                                 ->label('Deskripsi')
                                 ->columnSpanFull()
@@ -91,10 +107,9 @@ class AssetForm
                                 ->disk('public')
                                 ->directory('assets')
                                 ->image()
-                                ->imageEditor()          // crop & rotate bawaan Filament
+                                ->imageEditor()
                                 ->maxSize(2048)
                                 ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
-                                ->helperText('Max 2MB — JPG, PNG, or WebP')
                                 ->columnSpanFull(),
                         ])
                         ->columns(2),
@@ -155,20 +170,22 @@ class AssetForm
                             ->prefixIconColor('danger')
                             ->live(debounce: 300)
                             ->afterStateUpdated(fn (Get $get, Set $set) => self::recalculateStock($get, $set)),
+                            
 
                         TextInput::make('available_qty')
                             ->label('Tersedia')
                             ->numeric()
-                            ->required()
+                            ->dehydrated(false)
                             ->default(0)
                             ->readOnly()
                             ->prefixIcon('heroicon-o-cube')
-                            ->helperText('Tersedia = Bagus − Dipinjam'), // Fix: typo "Availbale"
+                            ->helperText('Tersedia = Bagus − Dipinjam')
+                            ->afterStateHydrated(fn (Get $get, Set $set) => self::recalculateStock($get, $set)),
 
                         TextInput::make('total_qty')
                             ->label('Total')
                             ->numeric()
-                            ->required()
+                            ->dehydrated()
                             ->default(0)
                             ->readOnly()
                             ->prefixIcon('heroicon-o-calculator'),

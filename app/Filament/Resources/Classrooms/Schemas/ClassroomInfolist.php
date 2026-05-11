@@ -23,7 +23,7 @@ class ClassroomInfolist
                                 ->size('lg')
                                 ->weight('medium'),
 
-                            TextEntry::make('major.name')        // Fix: bukan major_id
+                            TextEntry::make('major.name')
                                 ->label('Jurusan')
                                 ->badge()
                                 ->color('info'),

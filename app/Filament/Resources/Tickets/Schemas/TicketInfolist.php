@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Tickets\Schemas;
 
+use Carbon\Carbon;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
@@ -24,11 +25,11 @@ class TicketInfolist
                                 ->copyMessage('Nomor tiket disalin!')
                                 ->columnSpanFull(),
 
-                            TextEntry::make('user.name')        // Fix: bukan user_id
+                            TextEntry::make('user.name')
                                 ->label('Peminjam')
                                 ->icon('heroicon-o-user'),
 
-                            TextEntry::make('asset.name')       // Fix: bukan asset_id
+                            TextEntry::make('asset.name')
                                 ->label('Aset')
                                 ->icon('heroicon-o-cube'),
 
@@ -88,10 +89,10 @@ class TicketInfolist
                                 ->placeholder('Belum ditentukan')
                                 ->icon('heroicon-o-exclamation-circle')
                                 ->color(fn ($record) => match (true) {
-                                    is_null($record->due_at)                                                               => null,
-                                    \Carbon\Carbon::parse($record->due_at)->isPast() && $record->status === 'borrowed'     => 'danger',
-                                    \Carbon\Carbon::parse($record->due_at)->isToday()                                      => 'warning',
-                                    default                                                                                => null,
+                                    is_null($record->due_at) => null,
+                                    Carbon::parse($record->due_at)->isPast() && $record->status === 'borrowed' => 'danger',
+                                    Carbon::parse($record->due_at)->isToday() => 'warning',
+                                    default => null,
                                 }),
 
                             TextEntry::make('returned_at')
@@ -129,7 +130,7 @@ class TicketInfolist
                                 ->color(fn ($state) => match (true) {
                                     $state > 5 => 'success',
                                     $state > 0 => 'warning',
-                                    default    => 'danger',
+                                    default => 'danger',
                                 }),
                         ]),
 

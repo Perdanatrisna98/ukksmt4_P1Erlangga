@@ -35,4 +35,11 @@ class Ticket extends Model
     {
         return $this->hasMany(AssetReturn::class);
     }
+
+    protected $casts = [
+        'booked_at' => 'datetime',
+        'borrowed_at' => 'datetime',
+        'due_at' => 'date',
+        'returned_at' => 'datetime',
+    ];
 }

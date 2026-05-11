@@ -3,12 +3,9 @@
 namespace App\Filament\Resources\Assets\Tables;
 
 use Filament\Actions\ActionGroup;
-use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
-use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
-use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Columns\ColumnGroup;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
@@ -45,9 +42,29 @@ class AssetsTable
                         ->badge()
                         ->color('info')
                         ->toggleable(isToggledHiddenByDefault: true),
+                        
+                    TextColumn::make('purchase_price')
+                        ->label('Harga Pembelian')
+                        ->sortable()
+                        ->badge()
+                        ->toggleable(isToggledHiddenByDefault: true),
+
+                    TextColumn::make('procurement_year')
+                        ->label('Tahun Pengadaan')
+                        ->sortable()
+                        ->badge()
+                        ->color('info')
+                        ->toggleable(isToggledHiddenByDefault: true),
+
+                    TextColumn::make('funding_source')
+                        ->label('Sumber Pendanaan')
+                        ->sortable()
+                        ->badge()
+                        ->color('info')
+                        ->toggleable(isToggledHiddenByDefault: true),
                 ]),
 
-                ColumnGroup::make('Kondisi Alat', [  // Fix: typo "Conditiomn"
+                ColumnGroup::make('Kondisi Alat', [
                     TextColumn::make('good_qty')
                         ->label('Bagus')
                         ->numeric()
@@ -97,7 +114,7 @@ class AssetsTable
                 TextColumn::make('created_at')
                     ->dateTime('d M Y, H:i')
                     ->sortable()
-                    ->since()                    // tampil "2 days ago"
+                    ->since()
                     ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('updated_at')
@@ -130,12 +147,6 @@ class AssetsTable
                 ])
                 ->tooltip('Actions')
                 ->icon('heroicon-m-ellipsis-vertical'),
-            ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make()
-                        ->requiresConfirmation(),
-                ]),
             ]);
     }
 }

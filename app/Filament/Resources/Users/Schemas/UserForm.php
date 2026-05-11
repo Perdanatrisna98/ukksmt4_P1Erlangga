@@ -63,7 +63,6 @@ class UserForm
                                         : null
                                 )
                                 ->dehydrated(fn ($state) => filled($state))
-                                ->helperText('Kosongkan jika tidak ingin mengubah password.')
                                 ->minLength(8),
                         ]),
 
@@ -73,7 +72,6 @@ class UserForm
                             DateTimePicker::make('email_verified_at')
                                 ->label('Tanggal Verifikasi Email')
                                 ->placeholder('Belum diverifikasi')
-                                ->helperText('Isi untuk menandai email sebagai terverifikasi.')
                                 ->native(false),
                         ]),
                 ])

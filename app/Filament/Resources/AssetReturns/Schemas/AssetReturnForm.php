@@ -22,15 +22,22 @@ class AssetReturnForm
                 Group::make([
                     Section::make('Detail Pengembalian')
                         ->icon('heroicon-o-arrow-down-tray')
-                        ->description('Pilih tiket yang sedang dalam proses verifikasi pengembalian.')
+                        // ->description('Pilih tiket yang sedang dalam proses verifikasi pengembalian.')
                         ->schema([
                             Select::make('ticket_id')
-                                ->label('Nomor Tiket')  // Fix: typo 'Ricket Number'
+                                ->label('Nomor Tiket')
                                 ->relationship(
                                     'ticket',
                                     'ticket_number',
-                                    fn ($query) => $query->where('status', 'verifying')
+                                    function ($query, $operation, $record) {
+                                        if ($operation === 'create') {
+                                            return $query->where('status', 'verifying');
+                                        }
+                                        return $query->where('id', $record?->ticket_id);
+                                    }
                                 )
+                                ->disabled(fn ($operation) => $operation === 'edit')
+                                ->dehydrated()
                                 ->searchable()
                                 ->preload()
                                 ->required()
@@ -65,8 +72,8 @@ class AssetReturnForm
                                 ])
                                 ->default('good')
                                 ->required()
-                                ->native(false)
-                                ->helperText('Kondisi aset saat dikembalikan.'),
+                                ->native(false),
+                                // ->helperText('Kondisi aset saat dikembalikan.'),
 
                             Textarea::make('notes')
                                 ->label('Catatan')
@@ -86,14 +93,14 @@ class AssetReturnForm
                             Select::make('user_id')
                                 ->label('Diverifikasi Oleh')
                                 ->relationship('user', 'name')
-                                ->default(fn () => Auth::id())  // Fix: Auth::class → Auth::id()
+                                ->default(fn () => Auth::id())
                                 ->disabled()
                                 ->dehydrated()
                                 ->native(false),
 
                             DateTimePicker::make('returned_at')
                                 ->label('Waktu Pengembalian')
-                                ->default(Carbon::now())
+                                ->default(fn () =>Carbon::now())
                                 ->disabled()
                                 ->dehydrated()
                                 ->native(false)

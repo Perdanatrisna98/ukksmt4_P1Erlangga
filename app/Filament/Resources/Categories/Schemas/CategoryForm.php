@@ -50,7 +50,6 @@ class CategoryForm
                                 ->imageEditor()
                                 ->maxSize(2048)
                                 ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
-                                ->helperText('Max 2MB — JPG, PNG, or WebP')
                                 ->columnSpanFull(),
                         ]),
 

@@ -120,7 +120,6 @@ class StudentForm
                                 ->imageEditor()
                                 ->maxSize(2048)
                                 ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
-                                ->helperText('Maks 2MB — JPG, PNG, atau WebP')
                                 ->columnSpanFull(),
                         ]),
                 ])
