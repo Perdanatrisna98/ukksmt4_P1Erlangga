@@ -2,11 +2,11 @@
 
 # Aplikasi Peminjaman Alat
 
-Sistem manajemen peminjaman alat berbasis web dibangun menggunakan **Laravel 12**, **Filament v5**, dan **MySQL 8.4.3**.
+Sistem manajemen peminjaman alat berbasis web yang dibangun menggunakan **Laravel 12**, **Filament v5**, dan **MySQL 8**.
 
 ![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?style=flat-square&logo=laravel&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP-8.3.30-777BB4?style=flat-square&logo=php&logoColor=white)
-![Filament](https://img.shields.io/badge/Filament-v5-FDAE4B?style=flat-square&logoColor=white)
+![Filament](https://img.shields.io/badge/Filament-v5-FDAE4B?style=flat-square)
 ![MySQL](https://img.shields.io/badge/MySQL-8.4.3-4479A1?style=flat-square&logo=mysql&logoColor=white)
 
 </div>
@@ -15,7 +15,7 @@ Sistem manajemen peminjaman alat berbasis web dibangun menggunakan **Laravel 12*
 
 ## Tentang Proyek
 
-Aplikasi ini dibuat untuk memudahkan proses peminjaman alat secara digital, mencakup pengajuan, persetujuan, pemantauan, hingga pengembalian dengan perhitungan denda otomatis. 
+Aplikasi ini dibuat untuk memudahkan proses peminjaman alat secara digital, mulai dari pengajuan, persetujuan, pemantauan, hingga pengembalian alat dengan perhitungan denda otomatis.
 
 | Info | Detail |
 |------|--------|
@@ -33,14 +33,26 @@ Aplikasi ini dibuat untuk memudahkan proses peminjaman alat secara digital, menc
 | Runtime | PHP 8.3.30 |
 | Admin Panel | Filament v5 |
 | Database | MySQL 8.4.3 |
-| Auth & Permission | Filament Shield |
-| Print + Export PDF | Filament Html2Media |
+| Authentication & Permission | Filament Shield |
+| Export PDF | Filament Html2Media |
+| Activity Log | Spatie Activity Log |
 
 ---
 
-## Akun Untuk Login
+## Requirements
 
-Dibawah ini adalah akun yang sudah saya sediakan didalam server. Jika Anda ingin mengakses melalui laptop pribadi, silahkan silahkan clone project ini lalu ikuti cara dibawah.
+Sebelum menjalankan project, pastikan sudah menginstall:
+
+- PHP 8.3+
+- Composer
+- MySQL 8+
+- Node.js & NPM
+
+---
+
+## Akun Demo
+
+> Akun berikut hanya digunakan untuk kebutuhan demo dan pengujian aplikasi.
 
 | Role | Email | Password |
 |------|-------|----------|
@@ -48,68 +60,110 @@ Dibawah ini adalah akun yang sudah saya sediakan didalam server. Jika Anda ingin
 | Petugas | petugas@app.co | 123456 |
 | Peminjam | peminjam@app.co | 123456 |
 
+---
 
+## Instalasi Project
+
+Clone repository berikut:
+
+```bash
+git clone https://github.com/Perdanatrisna98/ukksmt4_P1Erlangga
+cd ukksmt4_P1Erlangga
+````
+
+Install dependency:
+
+```bash
+composer install
+```
+
+Copy file environment:
+
+```bash
+cp .env.example .env
+```
+
+Generate application key:
+
+```bash
+php artisan key:generate
+```
+
+Atur koneksi database pada file `.env`
+
+Upgrade Filament:
+
+```bash
+php artisan filament:upgrade
+```
+
+Jalankan server:
+
+```bash
+php artisan serve
+```
 
 ---
 
-## Cara Untuk Mengakses Melalui Lokal(Komputer Masing-Masing)
+## Fitur Aplikasi
 
-```
-git clone https://github.com/Perdanatrisna98/ukksmt4_P1Erlangga
-composer install
-php artisan filament:upgrade
-php artisan make:filament-user
-#setelah make:filament-user, ikuti saja petunjuknya
-```
+### Semua Role
 
-## Fitur
+* Login & Logout
 
-**Semua Role**
-- Login dan Logout
+### Admin
 
-**Admin**
-- CRUD User, Alat, Kategori
-- CRUD Data Peminjaman & Pengembalian
-- Log Aktivitas
-- Semua Fitur
+* CRUD User
+* CRUD Alat
+* CRUD Kategori
+* CRUD Peminjaman
+* CRUD Pengembalian
+* Manajemen Denda & Pelanggaran
+* Activity Log
+* Akses Semua Fitur
 
-**Petugas**
-- Menyetujui Peminjaman
-- Memantau Pengembalian
-- Cetak Laporan
+### Petugas
 
-**Peminjam**
-- Melihat Daftar Alat
-- Mengajukan Peminjaman
-- Mengembalikan Alat
+* Menyetujui Peminjaman
+* Memantau Pengembalian
+* Cetak Laporan
+
+### Peminjam
+
+* Melihat Daftar Alat
+* Mengajukan Peminjaman
+* Mengembalikan Alat
 
 ---
 
 ## Progress Pengerjaan
 
-| Tanggal | Aktivitas |
-|---------|-----------|
-| 14 Apr 2026 | Inisialisasi proyek, konfigurasi environment dan database |
-| 28 Apr 2026 | Membuat Fitur Login, Logout, Manage Users |
-| 29 Apr 2026 | Melanjutkan login sesuai role |
-| 30 Apr 2026 | Membuat CRUD Kategori dan mengubah sedikit tampilan |
-| 1 May 2026 | Membuat CRUD Alat |
-| 2 May 2026 | Mengubah Tampilan |
-| 4 May 2026 | Membuat CRUD Peminjaman |
-| 6 May 2026 | Membuat Crud Pengembalian |
-| 8 May 2026 | Membuat Denda & Pelanggaran |
-| 11 May 2026 | Membenarkan Tampilan & Error |
-| 12 May 2026 | Membuat Log Aktivita, Cetak Laporan |
+| Tanggal     | Aktivitas                                                |
+| ----------- | -------------------------------------------------------- |
+| 14 Apr 2026 | Inisialisasi project, konfigurasi environment & database |
+| 28 Apr 2026 | Membuat fitur Login, Logout, dan Manage Users            |
+| 29 Apr 2026 | Implementasi login sesuai role                           |
+| 30 Apr 2026 | Membuat CRUD Kategori & perbaikan tampilan               |
+| 1 Mei 2026  | Membuat CRUD Alat                                        |
+| 2 Mei 2026  | Perbaikan tampilan aplikasi                              |
+| 4 Mei 2026  | Membuat CRUD Peminjaman                                  |
+| 6 Mei 2026  | Membuat CRUD Pengembalian                                |
+| 8 Mei 2026  | Membuat fitur Denda & Pelanggaran                        |
+| 11 Mei 2026 | Perbaikan tampilan & bug                                 |
+| 12 Mei 2026 | Membuat Activity Log & Cetak Laporan                     |
 
+---
 
-### Jalankan Server
+## Akses Lokal
 
-Jika anda ingin akses web saya silahkan ketik dibrowser pc server atau menggunakan jaringan lab 2 seperti tabel dibawah ini.
+Jika ingin mengakses aplikasi melalui jaringan lokal/lab sekolah:
 
-| Keterangan | URL |
-|-------|-----|
-| Domain | ukksmt4.p1erlangga.test|
-| IP/Port | 192.168.9.50:2008 |
+| Keterangan | URL                     |
+| ---------- | ----------------------- |
+| Domain     | ukksmt4.p1erlangga.test |
+| IP / Port  | 192.168.9.50:2008       |
+
+> Pastikan domain lokal sudah diarahkan melalui file hosts atau menggunakan Laravel Herd/Valet.
 
 ---
 
@@ -119,47 +173,50 @@ Jika anda ingin akses web saya silahkan ketik dibrowser pc server atau menggunak
 composer install
 php artisan migrate
 php artisan filament:upgrade
-php artisan config:clear
-php artisan cache:clear
-php artisan view:clear
-php artisan route:clear
+php artisan optimize:clear
 ```
 
 ---
 
+## Evaluasi Pengembangan
 
-## Evaluasi 
+### Fitur yang Sudah Berjalan
 
-Evaluasi saya dalam setiap push, ketika saya mengerjakan.
+* Login & Logout
+* Manage Users
+* Login sesuai role
+* CRUD Kategori
+* CRUD Alat
+* CRUD Peminjaman
+* CRUD Pengembalian
+* Denda & Pelanggaran
+* Activity Log
+* Cetak Laporan
 
-**Fitur yang berjalan**
-- Login & Logout
-- Crud Users / Manage Users
-- Login sesuai role
-- Crud Kategori
-- Crud Alat
-- Crud Peminjaman
-- Crud Pengembalian
-- Denda & Pelanggaran
+### Rencana Pengembangan
 
-**Akan di Buat**
-- tidak ada
-
-**Rencana pengembangan**
-- Test All Fitur
-- Membenarkan bug & error (jika ada)
-
+* Testing seluruh fitur
+* Perbaikan bug & error
+* Optimasi tampilan aplikasi
 
 ---
 
 ## Developer
 
-| Nama | Peran | Sekolah |
-|------|-------|---------|
+| Nama                          | Peran     | Sekolah                   |
+| ----------------------------- | --------- | ------------------------- |
 | Erlangga Trisna Yudha Perdana | Siswa RPL | SMK MVP ARS Internasional |
 
 ---
 
+## License
+
+Project ini dibuat untuk kebutuhan pembelajaran dan Uji Kompetensi Keahlian (UKK) Semester 4 Tahun Pelajaran 2025/2026.
+
+---
+
 <div align="center">
-Dikembangkan untuk keperluan Uji Kompetensi Keahlian Semester 4 (UKKSMT4) Tahun Pelajaran 2025/2026.  
+
+Dikembangkan untuk keperluan Uji Kompetensi Keahlian Semester 4 (UKKSMT4) Tahun Pelajaran 2025/2026.
+
 </div>
