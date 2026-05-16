@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\LogsCrudActivity;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Override;
 
 class AssetReturn extends Model
 {
+    use LogsCrudActivity;
+
     protected $table = 'tbl_asset_returns';
 
     protected $fillable = [

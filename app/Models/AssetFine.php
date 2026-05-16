@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\LogsCrudActivity;
 use Illuminate\Database\Eloquent\Model;
 
 class AssetFine extends Model
 {
+    use LogsCrudActivity;
+
     protected $table = 'tbl_asset_fines';
 
     protected $fillable = [

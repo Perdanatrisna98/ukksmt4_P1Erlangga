@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\LogsCrudActivity;
 use Illuminate\Database\Eloquent\Model;
 
 class Classroom extends Model
 {
+    use LogsCrudActivity;
+
     protected $table = 'tbl_classrooms';
 
     protected $fillable = [

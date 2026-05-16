@@ -34,6 +34,7 @@ Aplikasi ini dibuat untuk memudahkan proses peminjaman alat secara digital, menc
 | Admin Panel | Filament v5 |
 | Database | MySQL 8.4.3 |
 | Auth & Permission | Filament Shield |
+| Print + Export PDF | Filament Html2Media |
 
 ---
 
@@ -70,6 +71,7 @@ php artisan make:filament-user
 - CRUD User, Alat, Kategori
 - CRUD Data Peminjaman & Pengembalian
 - Log Aktivitas
+- Semua Fitur
 
 **Petugas**
 - Menyetujui Peminjaman
@@ -97,6 +99,7 @@ php artisan make:filament-user
 | 6 May 2026 | Membuat Crud Pengembalian |
 | 8 May 2026 | Membuat Denda & Pelanggaran |
 | 11 May 2026 | Membenarkan Tampilan & Error |
+| 12 May 2026 | Membuat Log Aktivita, Cetak Laporan |
 
 
 ### Jalankan Server
@@ -140,16 +143,11 @@ Evaluasi saya dalam setiap push, ketika saya mengerjakan.
 - Denda & Pelanggaran
 
 **Akan di Buat**
-- Riwayat Peminjaman
-- Log Aktivitas
-- Cetak Laporan
+- tidak ada
 
 **Rencana pengembangan**
-- Riwayat Peminjaman
-- Log Aktivitas
-- Cetak Laporan
 - Test All Fitur
-- Membenarkan Error
+- Membenarkan bug & error (jika ada)
 
 
 ---

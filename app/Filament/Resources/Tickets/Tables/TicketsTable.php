@@ -2,8 +2,10 @@
 
 namespace App\Filament\Resources\Tickets\Tables;
 
+use App\Filament\Support\LoanReportHtml2Media;
 use App\Models\AssetFine;
 use App\Models\AssetReturn;
+use App\Support\LoanReportAccess;
 use Carbon\Carbon;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
@@ -44,7 +46,8 @@ class TicketsTable
                     ->label('Qty')
                     ->numeric()
                     ->sortable()
-                    ->alignCenter(),
+                    ->alignCenter()
+                    ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('status')
                     ->label('Status')
@@ -282,13 +285,21 @@ class TicketsTable
                     ->modalWidth('md')
                     ->button(),
 
+                LoanReportHtml2Media::exportPdfAction()
+                    ->button()
+                    ->outlined(),
+                LoanReportHtml2Media::printAction()
+                    ->button()
+                    ->outlined(),
+
                 ActionGroup::make([
                     ViewAction::make(),
                     EditAction::make(),
                     DeleteAction::make()->requiresConfirmation(),
                 ])
                 ->tooltip('Aksi lain')
-                ->icon('heroicon-m-ellipsis-vertical'),
+                ->icon('heroicon-m-ellipsis-vertical')
+                ->visible(fn (): bool => LoanReportAccess::canAccess()),
             ]);
     }
 }
