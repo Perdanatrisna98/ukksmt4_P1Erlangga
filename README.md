@@ -144,13 +144,14 @@ php artisan serve
 | 28 Apr 2026 | Membuat fitur Login, Logout, dan Manage Users            |
 | 29 Apr 2026 | Implementasi login sesuai role                           |
 | 30 Apr 2026 | Membuat CRUD Kategori & perbaikan tampilan               |
-| 1 Mei 2026  | Membuat CRUD Alat                                        |
-| 2 Mei 2026  | Perbaikan tampilan aplikasi                              |
-| 4 Mei 2026  | Membuat CRUD Peminjaman                                  |
-| 6 Mei 2026  | Membuat CRUD Pengembalian                                |
-| 8 Mei 2026  | Membuat fitur Denda & Pelanggaran                        |
-| 11 Mei 2026 | Perbaikan tampilan & bug                                 |
-| 12 Mei 2026 | Membuat Activity Log & Cetak Laporan                     |
+| 1 May 2026  | Membuat CRUD Alat                                        |
+| 2 May 2026  | Perbaikan tampilan aplikasi                              |
+| 4 May 2026  | Membuat CRUD Peminjaman                                  |
+| 6 May 2026  | Membuat CRUD Pengembalian                                |
+| 8 May 2026  | Membuat fitur Denda & Pelanggaran                        |
+| 11 May 2026 | Perbaikan tampilan & bug                                 |
+| 12 May 2026 | Membuat Activity Log & Cetak Laporan                     |
+| 18 May 2026 | Fixing Error di Fitur Cetak Laporan                      |
 
 ---
 
@@ -196,7 +197,6 @@ php artisan optimize:clear
 ### Rencana Pengembangan
 
 * Testing seluruh fitur
-* Perbaikan bug & error
 * Optimasi tampilan aplikasi
 
 ---

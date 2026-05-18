@@ -3,7 +3,7 @@
 namespace App\Support;
 
 use App\Models\Ticket;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Enumerable;
 
 class LoanReportBuilder
 {
@@ -48,7 +48,7 @@ class LoanReportBuilder
         ];
     }
 
-    public static function buildTotals(Collection $tickets): array
+    public static function buildTotals(Enumerable $tickets): array
     {
         $totalTickets = $tickets->count();
         $totalReturned = $tickets->where('status', 'returned')->count();
